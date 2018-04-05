@@ -270,11 +270,10 @@ module.exports = function( THREE ) {
 
 		}
 
-		function getZoomScale() {
-
+        this.getZoomScale = function() {
 			return Math.pow( 0.95, scope.zoomSpeed );
 
-		}
+		};
 
 		function rotateLeft( angle ) {
 
@@ -359,7 +358,7 @@ module.exports = function( THREE ) {
 
 		}();
 
-		function dollyIn( dollyScale ) {
+        this.dollyIn = function(dollyScale) {
 
 			if ( scope.object instanceof THREE.PerspectiveCamera ) {
 
@@ -380,7 +379,7 @@ module.exports = function( THREE ) {
 
 		}
 
-		function dollyOut( dollyScale ) {
+        this.dollyOut = function(dollyScale) {
 
 			if ( scope.object instanceof THREE.PerspectiveCamera ) {
 
@@ -460,11 +459,11 @@ module.exports = function( THREE ) {
 
 			if ( dollyDelta.y > 0 ) {
 
-				dollyIn( getZoomScale() );
+                scope.dollyIn( scope.getZoomScale() );
 
 			} else if ( dollyDelta.y < 0 ) {
 
-				dollyOut( getZoomScale() );
+                scope.dollyOut( scope.getZoomScale() );
 
 			}
 
@@ -502,11 +501,11 @@ module.exports = function( THREE ) {
 
 			if ( event.deltaY < 0 ) {
 
-				dollyOut( getZoomScale() );
+                scope.dollyOut( scope.getZoomScale() );
 
 			} else if ( event.deltaY > 0 ) {
 
-				dollyIn( getZoomScale() );
+                scope.dollyIn( scope.getZoomScale() );
 
 			}
 
@@ -609,11 +608,11 @@ module.exports = function( THREE ) {
 
 			if ( dollyDelta.y > 0 ) {
 
-				dollyOut( getZoomScale() );
+                scope.dollyOut( scope.getZoomScale() );
 
 			} else if ( dollyDelta.y < 0 ) {
 
-				dollyIn( getZoomScale() );
+                scope.dollyIn( scope.getZoomScale() );
 
 			}
 
